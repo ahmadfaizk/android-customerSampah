@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginFragment"
+    android:gravity="center"
+    android:background="@color/hijau">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/edt_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:inputType="phone"
+        android:hint="No.Hp/Telephone"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/bg_round_white"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_round_white"
+        android:layout_below="@+id/edt_phone_number"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_green"
+        android:ems="12"
+        android:text="Masuk"
+        android:textSize="20sp"
+        android:layout_below="@+id/edt_password"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="ATAU" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:background="@drawable/bg_round_green"
+        android:text="Daftar"
+        android:textSize="20sp"
+        android:layout_below="@+id/tv_or"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
