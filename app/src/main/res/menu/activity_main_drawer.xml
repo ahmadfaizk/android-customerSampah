@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_pickup_24dp"
             android:title="@string/pickup" />
         <item
+            android:id="@+id/nav_layanan"
+            android:icon="@drawable/ic_pickup_24dp"
+            android:title="@string/layanan" />
+        <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_history_24dp"
             android:title="@string/history" />

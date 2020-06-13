@@ -11,33 +11,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status : Belum Pickup"
+        android:text="Total Saldo Anda"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Waktu Pickup"
+        android:text="Rp. 380.000"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_round_green"/>
+     />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Penarikan Saldo"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"/>
-    <Button
-        android:id="@+id/btn_pickup"
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_white"
-        android:ems="12"
-        android:text="Pickup Sekarang"
-        android:textSize="20sp"
-        android:layout_marginTop="50dp" />
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_green"
-        android:ems="12"
-        android:text="Batalkan Pickup"
-        android:textSize="20sp"
-        android:layout_marginTop="15dp" />
+        android:text="Rp. 0,-"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_round_green"/>
+    />
 </LinearLayout>
