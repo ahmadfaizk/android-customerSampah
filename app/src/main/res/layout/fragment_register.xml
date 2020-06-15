@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
-        android:inputType="phone"
+        android:inputType="text"
         android:hint="Nama Lengkap"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
@@ -52,4 +52,13 @@
         android:layout_below="@+id/edt_phone_number"
         android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_below="@id/btn_register" />
 </RelativeLayout>

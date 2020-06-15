@@ -9,28 +9,34 @@
         android:id="@+id/nav_home"
         android:name="com.banksampah.customer.ui.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_nav_home_to_nav_pickup"
-            app:destination="@id/nav_pickup" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_history"
-            app:destination="@id/nav_history" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.banksampah.customer.ui.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/nav_pickup"
-        android:name="com.banksampah.customer.ui.pickup.PickupFragment"
-        android:label="@string/pickup"
-        tools:layout="@layout/fragment_pickup" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_profileUpdateFragment"
+            app:destination="@id/profileUpdateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_history"
         android:name="com.banksampah.customer.ui.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/nav_service"
+        android:name="com.banksampah.customer.ui.service.ServiceFragment"
+        android:label="@string/service"
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/profileUpdateFragment"
+        android:name="com.banksampah.customer.ui.profile.update.ProfileUpdateFragment"
+        android:label="Ubah Profil"
+        tools:layout="@layout/fragment_profile_update" >
+        <action
+            android:id="@+id/action_profileUpdateFragment_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
 </navigation>

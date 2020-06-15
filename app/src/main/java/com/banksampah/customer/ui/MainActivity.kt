@@ -1,18 +1,19 @@
-package com.banksampah.customer
+package com.banksampah.customer.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.navigation.ui.*
+import com.banksampah.customer.R
+import com.banksampah.customer.utils.TokenPreference
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,19 +31,42 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_pickup, R.id.nav_history), drawerLayout)
+            R.id.nav_home,
+            R.id.nav_profile,
+            R.id.nav_service,
+            R.id.nav_history
+        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+        navView.setNavigationItemSelectedListener { item ->
+            if (item.itemId == R.id.nav_logout) {
+                showLogoutDialog()
+            }
+            NavigationUI.onNavDestinationSelected(item, navController)
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun showLogoutDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Apakah anda yakin akan keluar dari aplikasi ini?")
+            .setPositiveButton("Ya"
+            ) { _, _ -> logout() }
+            .setNegativeButton("Tidak"
+            ) { dialog, _ -> dialog.dismiss() }
+            .create()
+            .show()
+    }
+
+    private fun logout() {
+        TokenPreference.getInstance(this).removeToken()
+        startActivity(Intent(this, StarterActivity::class.java))
+        finish()
     }
 }

@@ -17,16 +17,24 @@
         android:orientation="vertical"
         android:padding="8dp">
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pickup ke-xx" />
+            android:text="Nama Transaksi"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
         <TextView
+            android:id="@+id/tv_amount"
             android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
             android:layout_height="wrap_content"
-            android:text="Tanggal Pickup" />
+            android:text="Jumlah Transaksi"
+            android:textSize="16sp"/>
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Status : Menunggu" />
+            android:layout_marginTop="4dp"
+            android:text="Tanggal Transaksi" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

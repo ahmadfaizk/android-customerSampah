@@ -15,4 +15,8 @@
     <string name="layanan">Layanan</string>
     <string name="history">History</string>
     <string name="logout">Logout</string>
+    <string name="service">Layanan</string>
+    <string name="preferense_file_key">bank_sampah_preference</string>
+    <string name="bank_sampah">Bank Sampah</string>
+    <string name="customer">Customer</string>
 </resources>

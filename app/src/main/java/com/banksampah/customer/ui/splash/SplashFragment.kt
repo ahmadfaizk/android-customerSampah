@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.banksampah.customer.R
+import com.banksampah.customer.utils.TokenPreference
 
 class SplashFragment : Fragment() {
 
@@ -21,8 +22,14 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val token = TokenPreference.getInstance(requireContext()).getToken()
         Handler().postDelayed({
-            view.findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            if (token == null) {
+                view.findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            } else {
+                view.findNavController().navigate(R.id.action_splashFragment_to_mainActivity)
+                this.activity?.finish()
+            }
         }, 3000)
     }
 }
