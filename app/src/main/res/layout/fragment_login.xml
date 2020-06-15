@@ -10,10 +10,22 @@
 
     <ImageView
         android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_trash_512dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logo"
+        android:text="@string/bank_sampah"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/edt_phone_number"
@@ -25,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:background="@drawable/bg_round_white"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/app_title"
         android:layout_centerHorizontal="true" />
 
     <EditText
