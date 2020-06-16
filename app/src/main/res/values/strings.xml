@@ -19,4 +19,10 @@
     <string name="preferense_file_key">bank_sampah_preference</string>
     <string name="bank_sampah">Bank Sampah</string>
     <string name="customer">Customer</string>
+    <string name="password_baru">Password Baru</string>
+
+    <string-array name="items_profile">
+        <item>Ubah Data Profil</item>
+        <item>Ubah Password</item>
+    </string-array>
 </resources>

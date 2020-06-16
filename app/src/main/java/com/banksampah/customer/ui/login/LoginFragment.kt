@@ -1,8 +1,14 @@
 package com.banksampah.customer.ui.login
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -11,6 +17,7 @@ import com.banksampah.customer.R
 import com.banksampah.customer.model.Token
 import com.banksampah.customer.network.ApiClient
 import com.banksampah.customer.network.response.SingleResponse
+import com.banksampah.customer.utils.PhoneNumberValidator
 import com.banksampah.customer.utils.TokenPreference
 import kotlinx.android.synthetic.main.fragment_login.*
 import retrofit2.Call
@@ -18,6 +25,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginFragment : Fragment() {
+
+    companion object {
+        const val REQUEST_CONTACT = 10
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,22 +39,33 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setContactListener()
         btn_login.setOnClickListener {
             validateForm()
         }
         btn_register.setOnClickListener {
             view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+        btn_forgot_password.setOnClickListener {
+            view.findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
     }
 
     private fun validateForm() {
-        val phoneNumber = edt_phone_number.text.toString()
+        var phoneNumber = edt_phone_number.text.toString()
         val password = edt_password.text.toString()
 
         if (phoneNumber.isEmpty() || password.isEmpty()) {
             showMessage("Anda Belum Mengisi Nomor Handphone atau Password")
             return
         }
+        if (!PhoneNumberValidator.validate(phoneNumber)) {
+            showMessage("Format Nomor Handphone Salah")
+            return
+        }
+
+        phoneNumber = PhoneNumberValidator.clean(phoneNumber)
+
         login(phoneNumber, password)
     }
 
@@ -72,6 +94,44 @@ class LoginFragment : Fragment() {
                 showMessage(t.message.toString())
             }
         })
+    }
+
+    private fun setContactListener() {
+        edt_phone_number.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if (event?.action == MotionEvent.ACTION_UP) {
+                    if (event.rawX >= (edt_phone_number.right - edt_phone_number.compoundDrawables[2].bounds.width())) {
+                        readContact()
+                        return true
+                    }
+                }
+                return false
+            }
+        })
+    }
+
+    @SuppressLint("IntentReset")
+    private fun readContact() {
+        val contact = Intent(Intent.ACTION_PICK)
+        contact.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+        startActivityForResult(contact, REQUEST_CONTACT)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CONTACT && resultCode == Activity.RESULT_OK) {
+            getContactFromUri(data?.data)
+        }
+    }
+
+    private fun getContactFromUri(uri: Uri?) {
+        if (uri != null) {
+            val cursor = activity?.contentResolver?.query(uri, null, null, null, null)
+            cursor?.moveToFirst()
+            val name = cursor?.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+            val phoneNumber = cursor?.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+            edt_phone_number.setText(phoneNumber)
+        }
     }
 
     private fun showLoading(state: Boolean) {

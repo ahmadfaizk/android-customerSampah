@@ -31,6 +31,8 @@
         android:id="@+id/edt_phone_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_contacts_24dp"
+        android:drawableEnd="@drawable/ic_contacts_24dp"
         android:ems="12"
         android:inputType="phone"
         android:hint="No.Hp/Telephone"
@@ -54,6 +56,18 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/btn_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/edt_password"
+        android:layout_alignLeft="@id/edt_password"
+        android:layout_below="@id/edt_password"
+        android:background="@android:color/transparent"
+        android:text="Lupa Password?"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+    <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,7 +75,7 @@
         android:ems="12"
         android:text="Masuk"
         android:textSize="20sp"
-        android:layout_below="@+id/edt_password"
+        android:layout_below="@+id/btn_forgot_password"
         android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"/>
 

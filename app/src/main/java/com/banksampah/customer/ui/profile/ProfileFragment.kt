@@ -1,5 +1,7 @@
 package com.banksampah.customer.ui.profile
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,9 +39,7 @@ class ProfileFragment : Fragment() {
         requestData(token)
 
         btn_update.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putParcelable(ProfileUpdateFragment.EXTRA_USER, user)
-            view.findNavController().navigate(R.id.action_nav_profile_to_profileUpdateFragment, bundle)
+            showDialogUpdate()
         }
     }
 
@@ -63,6 +63,24 @@ class ProfileFragment : Fragment() {
                 showMessage(t.message.toString())
             }
         })
+    }
+
+    private fun showDialogUpdate() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Apa yang ingin anda ubah?")
+            .setItems(R.array.items_profile
+            ) { _, which ->
+                when(which) {
+                    0 -> {
+                        val bundle = Bundle()
+                        bundle.putParcelable(ProfileUpdateFragment.EXTRA_USER, user)
+                        view?.findNavController()?.navigate(R.id.action_nav_profile_to_profileUpdateFragment, bundle)
+                    }
+                    1 -> view?.findNavController()?.navigate(R.id.action_nav_profile_to_changePasswordFragment)
+                }
+            }
+            .create()
+            .show()
     }
 
     private fun populateData(user: User) {

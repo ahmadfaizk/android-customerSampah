@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_nav_profile_to_profileUpdateFragment"
             app:destination="@id/profileUpdateFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_history"
@@ -36,6 +39,15 @@
         tools:layout="@layout/fragment_profile_update" >
         <action
             android:id="@+id/action_profileUpdateFragment_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.banksampah.customer.ui.profile.password.ChangePasswordFragment"
+        android:label="Ubah Password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_nav_profile"
             app:destination="@id/nav_profile" />
     </fragment>
 

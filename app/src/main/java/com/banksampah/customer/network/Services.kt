@@ -20,6 +20,15 @@ interface Services {
     fun register(@Field("name") name: String,
                  @Field("phone_number") phoneNumber: String): Call<SingleResponse<Token>>
 
+    @FormUrlEncoded
+    @POST("customer/forgotpassword")
+    fun forgotPassword(@Field("phone_number") phoneNumber: String) : Call<SingleResponse<Token>>
+
+    @FormUrlEncoded
+    @POST("user/changepassword")
+    fun changePassword(@Header("Authorization") token: String,
+                       @Field("password") password: String) : Call<SingleResponse<User>>
+
     @GET("customer")
     fun getUser(@Header("Authorization") token: String): Call<SingleResponse<User>>
 
@@ -30,11 +39,11 @@ interface Services {
                    @Field("phone_number") phoneNumber: String,
                    @Field("address") address: String) : Call<SingleResponse<User>>
 
-    @GET("customer/history")
+    @GET("transaction/history")
     fun getHistory(@Header("Authorization") token: String): Call<MultiResponse<History>>
 
     @FormUrlEncoded
-    @POST("customer/complain")
+    @POST("complain/add")
     fun complain(@Header("Authorization") token: String,
                  @Field("complaint") complaint: String) : Call<SingleResponse<Complaint>>
 }
