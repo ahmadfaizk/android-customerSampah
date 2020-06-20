@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun populateData(user: User) {
-        tv_welcome.text = "Selamat Datang ${user.name}"
+        tv_welcome.text = getString(R.string.welcome_template, user.name)
         tv_saldo.text = RupiahFormatter.format(user.balance.toDouble())
         tv_penarikan.text = RupiahFormatter.format(user.withdraw.toDouble())
     }
@@ -67,11 +67,11 @@ class HomeFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
-            progress_bar.visibility = View.VISIBLE
-            container.visibility = View.GONE
+            progress_bar?.visibility = View.VISIBLE
+            container?.visibility = View.GONE
         } else {
-            progress_bar.visibility = View.GONE
-            container.visibility = View.VISIBLE
+            progress_bar?.visibility = View.GONE
+            container?.visibility = View.VISIBLE
         }
     }
 }

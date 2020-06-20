@@ -67,7 +67,7 @@ class ProfileFragment : Fragment() {
 
     private fun showDialogUpdate() {
         AlertDialog.Builder(requireContext())
-            .setTitle("Apa yang ingin anda ubah?")
+            .setTitle(getString(R.string.update_profile_message))
             .setItems(R.array.items_profile
             ) { _, which ->
                 when(which) {
@@ -91,11 +91,11 @@ class ProfileFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
-            progress_bar.visibility = View.VISIBLE
-            container.visibility = View.GONE
+            progress_bar?.visibility = View.VISIBLE
+            container?.visibility = View.GONE
         } else {
-            progress_bar.visibility = View.GONE
-            container.visibility = View.VISIBLE
+            progress_bar?.visibility = View.GONE
+            container?.visibility = View.VISIBLE
         }
     }
 

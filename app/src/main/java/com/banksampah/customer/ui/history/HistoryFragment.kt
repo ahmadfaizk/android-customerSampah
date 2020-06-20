@@ -68,11 +68,11 @@ class HistoryFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
-            progress_bar.visibility = View.VISIBLE
-            rv_history.visibility = View.GONE
+            progress_bar?.visibility = View.VISIBLE
+            rv_history?.visibility = View.GONE
         } else {
-            progress_bar.visibility = View.GONE
-            rv_history.visibility = View.VISIBLE
+            progress_bar?.visibility = View.GONE
+            rv_history?.visibility = View.VISIBLE
         }
     }
 }

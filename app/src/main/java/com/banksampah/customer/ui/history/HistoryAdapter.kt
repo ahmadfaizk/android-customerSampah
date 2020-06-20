@@ -36,9 +36,9 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
         fun bind(history: History) {
             with(itemView) {
                 if (history.type == "withdraw") {
-                    tv_title.text = "Melakukan Penarikan Saldo"
+                    tv_title.text = context.getString(R.string.withdraw_message)
                 } else {
-                    tv_title.text = "Pickup Sampah, Saldo Ditambahkan"
+                    tv_title.text = context.getString(R.string.deposit_message)
                 }
                 tv_amount.text = RupiahFormatter.format(history.amount.toDouble())
                 tv_date.text = history.date

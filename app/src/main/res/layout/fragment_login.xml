@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,7 +34,8 @@
         android:drawableEnd="@drawable/ic_contacts_24dp"
         android:ems="12"
         android:inputType="phone"
-        android:hint="No.Hp/Telephone"
+        android:hint="@string/no_hp_telephone"
+        android:autofillHints="@string/no_hp_telephone"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:background="@drawable/bg_round_white"
@@ -48,7 +48,8 @@
         android:layout_height="wrap_content"
         android:ems="12"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="@string/password"
+        android:autofillHints="@string/password"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_round_white"
@@ -63,7 +64,7 @@
         android:layout_alignLeft="@id/edt_password"
         android:layout_below="@id/edt_password"
         android:background="@android:color/transparent"
-        android:text="Lupa Password?"
+        android:text="@string/lupa_password"
         android:textAllCaps="false"
         android:textColor="@android:color/white" />
 
@@ -74,7 +75,7 @@
         android:background="@drawable/bg_round_green"
         style="@style/Widget.AppCompat.Button.Colored"
         android:ems="12"
-        android:text="Masuk"
+        android:text="@string/masuk"
         android:textSize="20sp"
         android:layout_below="@+id/btn_forgot_password"
         android:layout_marginTop="15dp"
@@ -87,7 +88,7 @@
         android:layout_below="@id/btn_login"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="ATAU" />
+        android:text="@string/atau" />
 
     <Button
         android:id="@+id/btn_register"
@@ -96,7 +97,7 @@
         android:ems="12"
         android:background="@drawable/bg_round_green"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Daftar"
+        android:text="@string/daftar"
         android:textSize="20sp"
         android:layout_below="@+id/tv_or"
         android:layout_marginTop="10dp"

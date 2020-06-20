@@ -55,10 +55,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLogoutDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Apakah anda yakin akan keluar dari aplikasi ini?")
-            .setPositiveButton("Ya"
+            .setTitle(getString(R.string.logout_message))
+            .setPositiveButton(getString(R.string.yes)
             ) { _, _ -> logout() }
-            .setNegativeButton("Tidak"
+            .setNegativeButton(getString(R.string.no)
             ) { dialog, _ -> dialog.dismiss() }
             .create()
             .show()

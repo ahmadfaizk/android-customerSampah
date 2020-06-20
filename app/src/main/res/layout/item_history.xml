@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp"
     android:layout_marginLeft="8dp"
@@ -20,7 +21,7 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Transaksi"
+            tools:text="@string/nama_transaksi"
             android:textStyle="bold"
             android:textSize="16sp"/>
         <TextView
@@ -28,13 +29,13 @@
             android:layout_width="match_parent"
             android:layout_marginTop="4dp"
             android:layout_height="wrap_content"
-            android:text="Jumlah Transaksi"
+            tools:text="@string/jumlah_transaksi"
             android:textSize="16sp"/>
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Tanggal Transaksi" />
+            tools:text="@string/tanggal_transaksi" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

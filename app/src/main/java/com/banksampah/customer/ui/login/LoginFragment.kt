@@ -56,11 +56,11 @@ class LoginFragment : Fragment() {
         val password = edt_password.text.toString()
 
         if (phoneNumber.isEmpty() || password.isEmpty()) {
-            showMessage("Anda Belum Mengisi Nomor Handphone atau Password")
+            showMessage(getString(R.string.form_empty))
             return
         }
         if (!PhoneNumberValidator.validate(phoneNumber)) {
-            showMessage("Format Nomor Handphone Salah")
+            showMessage(getString(R.string.phone_number_format_invalid))
             return
         }
 
@@ -82,7 +82,7 @@ class LoginFragment : Fragment() {
                 if (error != null && !error) {
                     val token = response.body()?.data
                     TokenPreference.getInstance(requireContext()).saveToken(token?.token)
-                    showMessage("Berhasil Login")
+                    showMessage(getString(R.string.login_success))
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_mainActivity)
                     this@LoginFragment.activity?.finish()
                 }
@@ -139,8 +139,8 @@ class LoginFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state)
-            progress_bar.visibility = View.VISIBLE
+            progress_bar?.visibility = View.VISIBLE
         else
-            progress_bar.visibility = View.GONE
+            progress_bar?.visibility = View.GONE
     }
 }

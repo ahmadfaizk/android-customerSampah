@@ -47,10 +47,10 @@ class RegisterFragment : Fragment() {
         var phoneNumber = edt_phone_number.text.toString()
 
         if (name.isEmpty() || phoneNumber.isEmpty()) {
-            showMessage("Pastikan Anda Mengisi Semua Datanya")
+            showMessage(getString(R.string.form_empty))
         }
         if (!PhoneNumberValidator.validate(phoneNumber)) {
-            showMessage("Format Nomor Handphone Slah")
+            showMessage(getString(R.string.phone_number_format_invalid))
             return
         }
 
@@ -70,7 +70,7 @@ class RegisterFragment : Fragment() {
                 showLoading(false)
                 val error = response.body()?.error
                 if (error != null && !error) {
-                    showMessage("Anda Berhasil Mendaftar\nSilahkan Tunggu SMS Balasan dari Operator Kami.")
+                    showMessage(getString(R.string.register_success))
                     view?.findNavController()?.navigate(R.id.action_registerFragment_to_loginFragment)
                 } else {
                     showMessage(response.body()?.message.toString())
@@ -131,8 +131,8 @@ class RegisterFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state)
-            progress_bar.visibility = View.VISIBLE
+            progress_bar?.visibility = View.VISIBLE
         else
-            progress_bar.visibility = View.GONE
+            progress_bar?.visibility = View.GONE
     }
 }

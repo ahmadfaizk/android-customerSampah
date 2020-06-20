@@ -47,11 +47,11 @@ class ForgotPasswordFragment : Fragment() {
     private fun validateForm() {
         var phoneNumber = edt_phone_number.text.toString().trim()
         if (phoneNumber.isEmpty()) {
-            showMessage("Anda Belum Mengisi Nomor Handphone atau Password")
+            showMessage(getString(R.string.form_empty))
             return
         }
         if (!PhoneNumberValidator.validate(phoneNumber)) {
-            showMessage("Format Nomor Handphone Salah")
+            showMessage(getString(R.string.phone_number_format_invalid))
             return
         }
 
@@ -66,7 +66,7 @@ class ForgotPasswordFragment : Fragment() {
                 showLoading(false)
                 val error = response.body()?.error
                 if (error != null && !error) {
-                    showMessage("Request Berhasil\nSilahkan Tunggu SMS Balasan dari Operator Kami.")
+                    showMessage(getString(R.string.forgot_password_success))
                     view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
                 } else {
                     showMessage(response.body()?.message.toString())
@@ -123,9 +123,9 @@ class ForgotPasswordFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state)
-            progress_bar.visibility = View.VISIBLE
+            progress_bar?.visibility = View.VISIBLE
         else
-            progress_bar.visibility = View.GONE
+            progress_bar?.visibility = View.GONE
     }
 
     private fun showMessage(message: String) {

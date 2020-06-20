@@ -41,7 +41,7 @@ class ServiceFragment : Fragment() {
         val complaint = edt_complaint.text.toString().trim()
 
         if (complaint.isEmpty()) {
-            showMessage("Text Keluhan Anda Kosong")
+            showMessage(getString(R.string.complaint_empty))
             return
         }
         complain(complaint)
@@ -54,7 +54,7 @@ class ServiceFragment : Fragment() {
                 showLoading(false)
                 val error = response.body()?.error
                 if (error != null && !error) {
-                    showMessage("Berhasil Mengirimkan Keluhan")
+                    showMessage(getString(R.string.send_complaint_success))
                     edt_complaint.text.clear()
                 } else {
                     showMessage(response.body()?.message.toString())
@@ -70,9 +70,9 @@ class ServiceFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state)
-            progress_bar.visibility = View.VISIBLE
+            progress_bar?.visibility = View.VISIBLE
         else
-            progress_bar.visibility = View.GONE
+            progress_bar?.visibility = View.GONE
     }
 
     private fun showMessage(message: String) {

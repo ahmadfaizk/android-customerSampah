@@ -1,18 +1,7 @@
 <resources>
     <string name="app_name">Customer Sampah</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="profile">Profil</string>
-    <string name="pickup">Saldo</string>
-    <string name="layanan">Layanan</string>
     <string name="history">History</string>
     <string name="logout">Logout</string>
     <string name="service">Layanan</string>
@@ -20,6 +9,43 @@
     <string name="bank_sampah">Bank Sampah</string>
     <string name="customer">Customer</string>
     <string name="password_baru">Password Baru</string>
+    <string name="welcome_template">Selamat Datang %1$s</string>
+    <string name="phone_number_format_invalid">Format Nomor Handphone Salah</string>
+    <string name="new_password_not_same">Password Baru Anda Tidak Cocok. Silahkan cek kembali.</string>
+    <string name="forgot_password_success">Anda Berhasil Mengganti Password. Silahkan Login Lagi</string>
+    <string name="login_success">Berhasil Login</string>
+    <string name="form_empty">Anda Belum Mengisi Semua Form</string>
+    <string name="change_password_success">Berhasil Mengubah Password</string>
+    <string name="update_profile_success">Berhasil Mengubah Data Profil</string>
+    <string name="register_success">Anda Berhasil Mendaftar</string>
+    <string name="logout_message">Apakah anda yakin akan keluar dari aplikasi ini?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="ubah">Ubah</string>
+    <string name="ubah_data">Ubah Data</string>
+    <string name="alamat">Alamat</string>
+    <string name="no_hp_telephone">No. Hp/Telephone</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="kirim">Kirim</string>
+    <string name="saldo">Saldo</string>
+    <string name="penarikan_saldo">Penarikan Saldo</string>
+    <string name="password">Password</string>
+    <string name="lupa_password">Lupa Password?</string>
+    <string name="masuk">Masuk</string>
+    <string name="atau">ATAU</string>
+    <string name="daftar">Daftar</string>
+    <string name="ubah_data_profil">Ubah Data Profil</string>
+    <string name="masukkan_keluhan_anda">Masukkan Keluhan Anda</string>
+    <string name="keluhan_anda">Keluhan Anda</string>
+    <string name="nama_transaksi">Nama Transaksi</string>
+    <string name="jumlah_transaksi">Jumlah Transaksi</string>
+    <string name="tanggal_transaksi">Tanggal Transaksi</string>
+    <string name="withdraw_message">Melakukan Penarikan Saldo</string>
+    <string name="deposit_message">Pickup Sampah, Saldo Ditambahkan</string>
+    <string name="update_profile_message">Apa yang ingin anda ubah?</string>
+    <string name="send_complaint_success">Berhasil Mengirimkan Keluhan</string>
+    <string name="complaint_empty">Keluhan Anda Kosong</string>
+    <string name="ubah_password">Ubah Password</string>
 
     <string-array name="items_profile">
         <item>Ubah Data Profil</item>
