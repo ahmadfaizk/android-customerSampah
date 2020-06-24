@@ -85,8 +85,9 @@ class LoginFragment : Fragment() {
                     showMessage(getString(R.string.login_success))
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_mainActivity)
                     this@LoginFragment.activity?.finish()
+                } else {
+                    showMessage(response.body()?.message.toString())
                 }
-                showMessage(response.body()?.message.toString())
             }
 
             override fun onFailure(call: Call<SingleResponse<Token>>, t: Throwable) {

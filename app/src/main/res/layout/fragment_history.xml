@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.history.HistoryFragment"
-    android:background="@color/hijau"
-    android:padding="4dp">
+    android:background="@color/hijau">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -18,6 +17,7 @@
         android:id="@+id/rv_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         tools:listitem="@layout/item_history" />
 
 </RelativeLayout>

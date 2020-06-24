@@ -13,13 +13,17 @@
             android:icon="@drawable/ic_account_circle_24dp"
             android:title="@string/profile" />
         <item
-            android:id="@+id/nav_service"
-            android:icon="@drawable/ic_help_24dp"
-            android:title="@string/service" />
+            android:id="@+id/nav_withdraw"
+            android:icon="@drawable/ic_attach_money_24dp"
+            android:title="@string/penarikan_saldo" />
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_history_24dp"
             android:title="@string/history" />
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/ic_help_24dp"
+            android:title="@string/service" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout_24dp"

@@ -46,4 +46,9 @@ interface Services {
     @POST("complain/add")
     fun complain(@Header("Authorization") token: String,
                  @Field("complaint") complaint: String) : Call<SingleResponse<Complaint>>
+
+    @FormUrlEncoded
+    @POST("customer/withdraw")
+    fun withdraw(@Header("Authorization") token: String,
+                 @Field("amount") amount: Long) : Call<SingleResponse<History>>
 }

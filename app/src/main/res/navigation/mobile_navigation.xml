@@ -50,5 +50,10 @@
             android:id="@+id/action_changePasswordFragment_to_nav_profile"
             app:destination="@id/nav_profile" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_withdraw"
+        android:name="com.banksampah.customer.ui.withdraw.WithdrawFragment"
+        android:label="@string/penarikan_saldo"
+        tools:layout="@layout/fragment_withdraw" />
 
 </navigation>
